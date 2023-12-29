@@ -3,7 +3,7 @@
 # Set branches
 DEV_BRANCH="dev"
 PROD_BRANCH="prod"
-EXCLUDE_DIR="script/"
+EXCLUDE_DIR="scripts/"
 
 # Ensure we're starting on DEV_BRANCH
 git checkout $DEV_BRANCH
