@@ -14,6 +14,8 @@ git fetch origin $PROD_BRANCH
 git config --global user.email "talhatahir586@gmail.com"
 git config --global user.name "Muhammad Talha Tahir"
 
+git merge prod --allow-unrelated-histories
+
 # Merge changes from PROD_BRANCH into DEV_BRANCH using 'ours' strategy
 # This ensures the current branch state is preferred, effectively ignoring changes from PROD_BRANCH
 git merge -s ours origin/$PROD_BRANCH --no-commit
