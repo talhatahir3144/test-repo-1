@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout dev branch
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         ref: dev
 
     - name: Execute script
       run: bash prod-to-dev-script.sh
+      shell: bash
