@@ -7,14 +7,14 @@ jobs:
   run-shell-script:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout prod branch
+    - name: Checkout dev branch
       uses: actions/checkout@v2
       with:
-        ref: prod
+        ref: dev
 
     - name: Make script executable
-      run: chmod +x dev-to-prod-script.sh
+      run: chmod +x prod-to-dev-script.sh
 
     - name: Execute script
-      run: ./dev-to-prod-script.sh
+      run: ./prod-to-dev-script.sh
       shell: bash
