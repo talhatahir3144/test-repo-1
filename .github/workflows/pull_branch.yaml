@@ -16,5 +16,7 @@ jobs:
       run: chmod +x dev-to-prod-script.sh
 
     - name: Execute script
-      run: ./dev-to-prod-script.sh
+      run: |
+        set -e
+        ./dev-to-prod-script.sh
       shell: bash
