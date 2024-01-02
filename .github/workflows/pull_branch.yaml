@@ -1,4 +1,4 @@
-name: pull_branches_script
+name: pull_branch
 
 on:
   workflow_dispatch:
