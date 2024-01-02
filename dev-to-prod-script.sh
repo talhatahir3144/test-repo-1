@@ -11,6 +11,9 @@ git checkout $PROD_BRANCH
 # Fetch the latest changes from DEV_BRANCH
 git fetch origin $DEV_BRANCH
 
+git config --global user.email "talhatahir586@gmail.com"
+git config --global user.name "Muhammad Talha Tahir"
+
 # Merge changes from DEV_BRANCH into PROD_BRANCH using 'ours' strategy
 # This ensures the current branch state is preferred, effectively ignoring changes from DEV_BRANCH
 git merge -s ours origin/$DEV_BRANCH --no-commit
