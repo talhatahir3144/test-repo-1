@@ -1,0 +1,16 @@
+name: pull_branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-shell-script:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout prod branch
+      uses: actions/checkout@v2
+      with:
+        ref: prod
+
+    - name: Execute script
+      run: bash dev-to-prod-script.sh
