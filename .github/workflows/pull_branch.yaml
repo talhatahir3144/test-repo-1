@@ -12,6 +12,9 @@ jobs:
       with:
         ref: dev
 
+    - name: Ensure script is executable
+      run: chmod +x prod-to-dev-script.sh
+
     - name: Execute script
-      run: bash prod-to-dev-script.sh
+      run: ./prod-to-dev-script.sh
       shell: bash
