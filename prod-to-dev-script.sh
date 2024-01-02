@@ -17,7 +17,7 @@ git config --global user.name "Muhammad Talha Tahir"
 
 # Merge changes from PROD_BRANCH into DEV_BRANCH using 'ours' strategy. This ensures the current branch state is preferred, effectively ignoring changes from PROD_BRANCH
 # Added --allow-unrelated-histories to handle branches with unrelated histories
-git merge -s ours origin/$PROD_BRANCH --allow-unrelated-histories --no-commit
+git merge -s ours origin/$DEV_BRANCH --allow-unrelated-histories --no-commit
 
 # Manually reapply changes from PROD_BRANCH, excluding the EXCLUDE_DIR
 git checkout origin/$PROD_BRANCH -- $(git diff --name-only $DEV_BRANCH origin/$PROD_BRANCH | grep -Ev "$EXCLUDE_DIR")
