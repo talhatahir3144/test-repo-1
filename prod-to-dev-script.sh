@@ -3,7 +3,7 @@
 # Set branches
 DEV_BRANCH="dev"
 PROD_BRANCH="prod"
-EXCLUDE_DIR="scripts"
+EXCLUDE_DIR="scripts|.github"
 
 # Ensure we're starting on DEV_BRANCH
 git checkout $DEV_BRANCH
@@ -19,12 +19,12 @@ git config --global user.name "Muhammad Talha Tahir"
 git merge -s ours origin/$PROD_BRANCH --no-commit
 
 # Manually reapply changes from PROD_BRANCH, excluding the EXCLUDE_DIR
-git checkout origin/$PROD_BRANCH -- $(git diff --name-only $DEV_BRANCH origin/$PROD_BRANCH | grep -v "$EXCLUDE_DIR")
+git checkout origin/$PROD_BRANCH -- $(git diff --name-only $DEV_BRANCH origin/$PROD_BRANCH | grep -Ev "$EXCLUDE_DIR")
 
 # If there are conflicts (excluding EXCLUDE_DIR), resolve them by taking the version from PROD_BRANCH
 if git ls-files -u | cut -f 2 | uniq
 then
-    git ls-files -u | cut -f 2 | uniq | grep -v "$EXCLUDE_DIR" | xargs -I{} git checkout --theirs {}
+    git ls-files -u | cut -f 2 | uniq | grep -Ev "$EXCLUDE_DIR" | xargs -I{} git checkout --theirs {}
     git add -u
 fi
 
