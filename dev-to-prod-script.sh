@@ -31,6 +31,9 @@ fi
 # Commit the merge
 git commit -m "Merged $DEV_BRANCH into $PROD_BRANCH excluding $EXCLUDE_DIR"
 
+# Push data to $PROD_BRANCH
+git push origin $PROD_BRANCH
+
 # Clearing out merge conflicts and updating prod branch
 git pull origin $PROD_BRANCH
 
